@@ -38,5 +38,21 @@ $(window).load(function(){
     $(".set-distance").click(function() { setView("scale-d set-distance"); });
 
     init();
+    $(document).ready(function () {
+        var solarSound = document.getElementById('solarSound');
+        var isPlaying = false;
 
+        // Play the audio when the "Start/Stop" button is clicked
+        $("#startStopButton").click(function () {
+            if (isPlaying) {
+                solarSound.pause(); // Pause the audio
+                isPlaying = false;
+            } else {
+                solarSound.currentTime = 0; // Reset the audio to the beginning
+                solarSound.play(); // Play the audio
+                isPlaying = true;
+            }
+        });
+    });
 });
+
